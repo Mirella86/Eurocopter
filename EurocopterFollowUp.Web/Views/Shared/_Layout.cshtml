@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @*    @Scripts.Render("~/bundles/modernizr")*@
+    <!--This bundle was moved by the Kendo UI VS Extensions for compatibility reasons-->
+    <link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2013.3.1324/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2013.3.1324/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2013.3.1324/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2013.3.1324/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <script src="../../Scripts/noty/jquery.noty.js" type="text/javascript"></script>
+    <script src="../../Scripts/noty/layouts/top.js" type="text/javascript"></script>
+    <script src="../../Scripts/noty/themes/default.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow"); ;
+        });
+        $('#loading-image').bind('ajaxStart', function () {
+            $(this).show();
+        }).bind('ajaxStop', function () {
+            $(this).hide();
+        });
+
+        $(document).ready(function () {
+            displayServerMessages();
+        });
+        
+         function displayServerMessages() {
+                var msg = "@Html.Raw(TempData["ServerErrorMessages"] != null ? TempData["ServerErrorMessages"].ToString() : string.Empty)";
+                var msgType = "@TempData["MessageType"]";
+                var sticky = @(TempData["StickyMessage"] != null ? "true" : "false");
+
+                var n;
+                if (msg != undefined && msg != "") {
+                 
+                    n = noty({
+                        text: msg,
+                        type: msgType,
+                        timeout:  !sticky
+                       
+                    });
+
+                    if (n != undefined && msgType != "") {
+                        n.setType(msgType.toLowerCase());
+                        if (!sticky)
+                            n.setTimeout(5000);
+                    }
+                    msg = "";
+                }
+
+            }
+
+    </script>
+</head>
+<body>
+    <div style="float: right">
+        Welcome, @TempData["CurentUserName"] @Html.ActionLink("Logout", "LogOff", "Account")
+    </div>
+    <div class="logo">
+        <h2>
+            Eurocopter Follow-Up</h2>
+        <p>@TempData["appVersion"]</p>
+    </div>
+
+    <div class="se-pre-con">
+        
+    </div>
+    <div class="body">
+        @{ Html.RenderPartial("_MainMenu"); }
+        <br />
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

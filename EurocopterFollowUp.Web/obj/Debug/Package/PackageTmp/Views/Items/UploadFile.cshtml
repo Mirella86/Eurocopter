@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("UploadFile", "Items", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="Upload File" />
+}

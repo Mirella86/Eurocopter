@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EurocopterModelStoreContainer" CdmEntityContainer="EurocopterEntities">
+    <EntitySetMapping Name="ApplicationRoles">
+      <EntityTypeMapping TypeName="EurocopterModel.ApplicationRole">
+        <MappingFragment StoreEntitySet="ApplicationRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationUsersInRoles">
+      <EntityTypeMapping TypeName="EurocopterModel.ApplicationUsersInRole">
+        <MappingFragment StoreEntitySet="ApplicationUsersInRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_UserDetails">
+      <EntityTypeMapping TypeName="EurocopterModel.vw_UserDetails">
+        <MappingFragment StoreEntitySet="vw_UserDetails">
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserDetailsId" ColumnName="UserDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_aspnet_Users_Synonim">
+      <EntityTypeMapping TypeName="EurocopterModel.vw_aspnet_Users_Synonim">
+        <MappingFragment StoreEntitySet="vw_aspnet_Users_Synonim">
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GridStates">
+      <EntityTypeMapping TypeName="EurocopterModel.GridState">
+        <MappingFragment StoreEntitySet="GridState">
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemStatusHistories">
+      <EntityTypeMapping TypeName="EurocopterModel.ItemStatusHistory">
+        <MappingFragment StoreEntitySet="ItemStatusHistory">
+          <ScalarProperty Name="ToStatusId" ColumnName="ToStatusId" />
+          <ScalarProperty Name="FromStatusId" ColumnName="FromStatusId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="EurocopterModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="EurocopterModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="Figure" ColumnName="Figure" />
+          <ScalarProperty Name="FinalPercent" ColumnName="FinalPercent" />
+          <ScalarProperty Name="CrossCheckPercent" ColumnName="CrossCheckPercent" />
+          <ScalarProperty Name="AuthoringPercent" ColumnName="AuthoringPercent" />
+          <ScalarProperty Name="ProofReaderId" ColumnName="ProofReaderId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="Daos" ColumnName="Daos" />
+          <ScalarProperty Name="DaosDescription" ColumnName="DaosDescription" />
+          <ScalarProperty Name="DataOut" ColumnName="DataOut" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="DataIn" ColumnName="DataIn" />
+          <ScalarProperty Name="Aircraft" ColumnName="Aircraft" />
+          <ScalarProperty Name="Effectivity" ColumnName="Effectivity" />
+          <ScalarProperty Name="ConfNo" ColumnName="ConfNo" />
+          <ScalarProperty Name="TypeIU" ColumnName="TypeIU" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="RPT_VCI" ColumnName="RPT_VCI" />
+          <ScalarProperty Name="Installation" ColumnName="Installation" />
+          <ScalarProperty Name="Issue" ColumnName="Issue" />
+          <ScalarProperty Name="Subsystem_ECP" ColumnName="Subsystem_ECP" />
+          <ScalarProperty Name="Ud" ColumnName="Ud" />
+          <ScalarProperty Name="WP" ColumnName="WP" />
+          <ScalarProperty Name="WO" ColumnName="WO" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,10 @@
+﻿@model decimal?
+@if (ViewData.ModelMetadata.IsReadOnly)
+{
+    @(Html.Kendo().NumericTextBoxFor(m => m)
+          .HtmlAttributes(new { @readonly = "readonly", @class = "readonly" }))
+}
+else
+{
+    @(Html.Kendo().NumericTextBoxFor(m => m))
+}

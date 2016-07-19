@@ -1,0 +1,8 @@
+﻿@{
+
+    Layout = "../Shared/_Layout.cshtml";
+}
+@{
+    @Html.Hidden("IsRegularUser", (object)ViewBag.IsRegularUser)
+    Html.RenderPartial("_ItemsGrid");
+}

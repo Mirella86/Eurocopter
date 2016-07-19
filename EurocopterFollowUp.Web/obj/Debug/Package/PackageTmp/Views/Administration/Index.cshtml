@@ -1,0 +1,28 @@
+﻿@using EurocopterFollowUp.Model.ViewModels
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@(Html.Kendo().Grid<UserDetailViewModel>()
+      .Name("grid")
+          .DataSource(ds => ds
+                                .Ajax()
+                                .Read("ReadUserDetails", "Administration")
+                                .Model(model => model.Id(i => i.UserId))
+          )
+       .Columns(columns =>
+           {
+               columns.Bound(col => col.UserFullName).Width(100);
+               columns.Bound(col => col.Username).Width(100);
+               columns.Bound(col => col.IsAdmin).Width(100).ClientTemplate("<input type='checkbox' readonly='readonly' disabled='disabled' class='checkbox' onclick='event.preventDefault();' #=IsAdmin == true ? ' checked ' : '' # />").HtmlAttributes(new { style = "text-align:center" });
+               columns.Bound(col => col.IsManager).Width(100).ClientTemplate("<input type='checkbox' readonly='readonly' disabled='disabled'  class='checkbox' onclick='event.preventDefault();' #=IsManager == true ? ' checked ' : '' # />").HtmlAttributes(new { style = "text-align:center" });
+               columns.Bound(col => col.IsRegularUser).Width(100).ClientTemplate("<input type='checkbox'  readonly='readonly' disabled='disabled'  class='checkbox' onclick='event.preventDefault();' #=IsRegularUser == true ? ' checked ' : '' # />").HtmlAttributes(new { style = "text-align:center" });
+
+           })
+      .Pageable(size => size.PageSizes(new int[] { 10, 20, 30 }))
+      .Selectable(selectable => selectable.Mode(GridSelectionMode.Single).Type(GridSelectionType.Row))
+      .Sortable()
+      .Scrollable(scroll => scroll.Height("1500"))
+      .HtmlAttributes(new { style = "width:1500px;" })
+      .Filterable()
+        )
+<script src="../../Scripts/eurocopter/administration_grid.js" type="text/javascript"></script>

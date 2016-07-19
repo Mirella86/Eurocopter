@@ -1,0 +1,91 @@
+﻿@model EurocopterFollowUp.Web.Models.LoginModel
+@{
+
+}
+@{
+    Layout = null;
+ }
+<!DOCTYPE html>
+<html lang="en" style="background-color: white !important; height: auto !important;">
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="@BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
+    <link href="@BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/")" type="text/css" rel="stylesheet" />
+    <link href="../../Content/kendo/2013.3.1119/kendo.bootstrap.min.css" rel="stylesheet"
+        type="text/css" />
+</head>
+<body style="background-color: white !important;">
+    @using (Html.BeginForm((string)ViewBag.FormAction, "Account", new { returnUrl = Request.QueryString["ReturnUrl"] }))
+    {
+        @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
+
+        <div class="loginContainer">
+            <div class="login-content">
+                <div class="login-header">
+                  @*  <img src="~/Images/sonovision.png"  />*@
+                    <img src="../../Images/sonovision.jpg" alt="logo-sono" style="margin-top: 25px;" />
+
+                </div>
+                <div class="login-body">
+                    <div class="login-form">
+                        <div class="bigTitle">
+                            <span id="logIn">Log in - Eurocopter </span>
+                        </div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        @Html.LabelFor(m => m.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(m => m.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(m => m.UserName)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.LabelFor(m => m.Password)
+                                    </td>
+                                    <td>
+                                        @Html.PasswordFor(m => m.Password)
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(m => m.Password)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <input type="submit" class="t-button" value="Log in" />
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</body>

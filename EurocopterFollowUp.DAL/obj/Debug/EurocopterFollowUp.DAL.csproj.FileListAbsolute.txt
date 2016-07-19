@@ -1,0 +1,16 @@
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\bin\Debug\EurocopterFollowUp.DAL.dll.config
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\bin\Debug\EurocopterFollowUp.DAL.dll
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\bin\Debug\EurocopterFollowUp.DAL.pdb
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\bin\Debug\EntityFramework.dll
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\bin\Debug\EntityFramework.xml
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\obj\Debug\EurocopterFollowUp.DAL.csprojResolveAssemblyReference.cache
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\obj\Debug\EurocopterFollowUp.DAL.dll
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp\EurocopterFollowUp.DAL\obj\Debug\EurocopterFollowUp.DAL.pdb
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\bin\Debug\EurocopterFollowUp.DAL.dll.config
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\bin\Debug\EurocopterFollowUp.DAL.dll
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\bin\Debug\EurocopterFollowUp.DAL.pdb
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\bin\Debug\EntityFramework.dll
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\bin\Debug\EntityFramework.xml
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\obj\Debug\EurocopterFollowUp.DAL.dll
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\obj\Debug\EurocopterFollowUp.DAL.pdb
+D:\Project Workspace\EurocopterFollowUp\trunk\EurocopterFollowUp.DAL\obj\Debug\EurocopterFollowUp.DAL.csprojResolveAssemblyReference.cache

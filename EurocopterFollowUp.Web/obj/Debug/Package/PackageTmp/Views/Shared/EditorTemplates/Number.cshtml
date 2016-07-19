@@ -1,0 +1,12 @@
+@model double?
+
+@if (ViewData.ModelMetadata.IsReadOnly)
+{
+    @(Html.Kendo().NumericTextBoxFor(m => m)
+          .HtmlAttributes(new {style = "width:100%", @readonly = "readonly", @class = "readonly"}))
+}
+else
+{
+    @(Html.Kendo().NumericTextBoxFor(m => m)
+          .HtmlAttributes(new {style = "width:100%"}))
+}

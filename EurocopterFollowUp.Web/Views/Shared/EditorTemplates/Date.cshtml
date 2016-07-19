@@ -1,0 +1,14 @@
+@model DateTime?
+
+@if (ViewData.ModelMetadata.IsReadOnly)
+{
+   @* @(Html.Kendo().DatePickerFor(m => m)
+          .HtmlAttributes(new {@readonly = "readonly", @class = "readonly"})
+          )*@
+    
+    @Html.TextBoxFor(model => model, new { @class = "k-textbox single-line readonly", @readonly = "readonly" })
+}
+else
+{
+    @(Html.Kendo().DatePickerFor(m => m))
+}

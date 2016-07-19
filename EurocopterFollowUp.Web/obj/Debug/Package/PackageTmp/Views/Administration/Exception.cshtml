@@ -1,0 +1,29 @@
+﻿@using EurocopterFollowUp.Model.Enums
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<script type="text/javascript">
+    function BackToMyItems() {
+        window.location.href = '/Items/MyItems/';
+    }
+</script>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <div>
+            <br/>
+           
+            <h2>
+                An unexpected error has occured.
+            </h2>
+            <br />
+            <br />
+            @(Html.Kendo().Button()
+                  .Name("cancel")
+                  .Content("Back to main page")
+                  .HtmlAttributes(new { type = "button", onclick = "BackToMyItems()" })
+                  )
+        </div>
+    </fieldset>
+}

@@ -1,0 +1,58 @@
+﻿@model EurocopterFollowUp.Model.ViewModels.UserDetailViewModel
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(item => item.UserId)
+        <p>
+            @(Html.Kendo().Button()
+            .Name("submit")
+            .Content("Save")
+            .HtmlAttributes(new { type = "submit" })
+        )
+        </p>
+        <div class="columnDiv">
+            <div class="label">
+                @Html.LabelFor(item => item.UserFullName, "Full Name")</div>
+            <div class="editor-field">
+                @Html.DisplayFor(item => item.UserFullName)
+            </div>
+            <br />
+        </div>
+        <div class="columnDiv">
+            <div class="label">
+                @Html.LabelFor(item => item.Username, "Username")</div>
+            <div class="editor-field">
+                @Html.DisplayFor(item => item.Username)
+            </div>
+            <br />
+        </div>
+        <div class="columnDiv">
+            <div class="label">
+                @Html.LabelFor(item => item.IsAdmin, "Administrator")</div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(item => item.IsAdmin)
+            </div>
+            <br />
+        </div>
+        <div class="columnDiv">
+            <div class="label">
+                @Html.LabelFor(item => item.IsAdmin, "Manager")</div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(item => item.IsManager)
+            </div>
+            <br />
+        </div>
+        <div class="columnDiv">
+            <div class="label">
+                @Html.LabelFor(item => item.IsAdmin, "User")</div>
+            <div class="editor-field">
+                @Html.CheckBoxFor(item => item.IsRegularUser)
+            </div>
+            <br />
+        </div>
+    </fieldset>
+}

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1E0E0ED0-6EE4-4DD7-9C29-F7CED169CEF7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EurocopterFollowUp.DAL</RootNamespace>
+    <AssemblyName>EurocopterFollowUp.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Eurocopter\ApplicationRole.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\ApplicationUsersInRole.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\Eurocopter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Eurocopter.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\EurocopterModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurocopterModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\EurocopterModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContextFactory.cs" />
+    <Compile Include="Eurocopter\GridState.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\Item.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\ItemStatusHistory.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\Status.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\vw_aspnet_Users_Synonim.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Eurocopter\vw_UserDetails.cs">
+      <DependentUpon>EurocopterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IApplicationRolesRepository.cs" />
+    <Compile Include="Interfaces\Iaspnet_UsersRepository.cs" />
+    <Compile Include="Repositories\ApplicationRolesRepository.cs" />
+    <Compile Include="Repositories\ApplicationUserRolesRepository.cs" />
+    <Compile Include="Interfaces\IApplicationUserRolesRepository.cs" />
+    <Compile Include="Interfaces\IGridStateRepository.cs" />
+    <Compile Include="Interfaces\IItemRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IStatusRepository.cs" />
+    <Compile Include="Membership\aspnet_Applications.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_Membership.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_Paths.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_Profile.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_Roles.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_SchemaVersions.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_Users.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\aspnet_WebEvent_Events.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\Membership.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Membership.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\MembershipModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembershipModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\MembershipModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\UserDetail.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_Applications.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_Profiles.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_Roles.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_Users.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Membership\vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>MembershipModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\aspnet_UsersRepository.cs" />
+    <Compile Include="Repositories\GridStateRepository.cs" />
+    <Compile Include="Repositories\ItemRepository.cs" />
+    <Compile Include="Interfaces\IUserDetailsRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
+    <Compile Include="Repositories\UserDetailsRepository.cs" />
+    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Eurocopter\Eurocopter.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Eurocopter.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Eurocopter\EurocopterModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EurocopterModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Eurocopter\EurocopterModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EurocopterModel.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Membership\Membership.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Membership.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Membership\MembershipModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MembershipModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Membership\MembershipModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MembershipModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

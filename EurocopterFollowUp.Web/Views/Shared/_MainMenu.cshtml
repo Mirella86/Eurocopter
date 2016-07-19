@@ -1,0 +1,22 @@
+﻿
+@Html.Hidden("pageName", (object)ViewBag.pageName)
+<br />
+@{
+    var isAllowedToAddItem = Roles.IsUserInRole((string)TempData["CurentUserName"], "Manager") || Roles.IsUserInRole((string)TempData["CurentUserName"], "Administrator");
+    var isAdmin = Roles.IsUserInRole((string)TempData["CurentUserName"], "Administrator");
+
+    @(Html.Kendo().Menu()
+          .Name("mainMenu")
+          .Items(items =>
+              {
+                  items.Add().Text("All items").Action("AllItems", "Items", new { @class = "lnkAction" });
+                  items.Add().Text("My items").Action("MyItems", "Items", new { @class = "lnkAction" });
+                  items.Add().Text("Add new item").Action("AddItem", "Items", new { @class = "lnkAction", pageName = ViewBag.pageName })
+                       .Enabled(isAllowedToAddItem);
+                  items.Add().Text("Administration").Action("Index", "Administration").Enabled(isAdmin);
+              })
+            //   .HtmlAttributes(new { @class = "mainMenu" })
+                      .HtmlAttributes(new { style = "width:1500px;" })
+          )
+    
+}

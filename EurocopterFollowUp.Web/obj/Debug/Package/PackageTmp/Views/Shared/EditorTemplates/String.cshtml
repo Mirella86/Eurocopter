@@ -1,0 +1,11 @@
+﻿@model object
+@*@Html.TextBoxFor(model => model, new {@class="k-textbox" })
+*@
+@if (ViewData.ModelMetadata.IsReadOnly)
+{
+    @Html.TextBoxFor(model => model, new { @class = "k-textbox single-line readonly", @readonly = "readonly" })
+}
+else
+{
+    @Html.TextBoxFor(model => model, new { @class = "k-textbox" })
+}

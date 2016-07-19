@@ -1,0 +1,17 @@
+@model int?
+@if (ViewData.ModelMetadata.IsReadOnly)
+{
+    @(Html.Kendo().IntegerTextBoxFor(m => m)
+          .HtmlAttributes(new {style = "width:100%", @readonly = "readonly", @class = "readonly"})
+          .Min(int.MinValue)
+          .Max(int.MaxValue)
+          )
+}
+else
+{
+    @(Html.Kendo().IntegerTextBoxFor(m => m)
+          .HtmlAttributes(new {style = "width:100%"})
+          .Min(int.MinValue)
+          .Max(int.MaxValue)
+          )
+}

@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EurocopterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EurocopterModelStoreContainer">
+    <EntitySet Name="ApplicationRoles" EntityType="EurocopterModel.Store.ApplicationRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplicationUsersInRoles" EntityType="EurocopterModel.Store.ApplicationUsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GridState" EntityType="EurocopterModel.Store.GridState" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Item" EntityType="EurocopterModel.Store.Item" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemStatusHistory" EntityType="EurocopterModel.Store.ItemStatusHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Status" EntityType="EurocopterModel.Store.Status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vw_aspnet_Users_Synonim" EntityType="EurocopterModel.Store.vw_aspnet_Users_Synonim" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Users_Synonim">
+      <DefiningQuery>SELECT 
+      [vw_aspnet_Users_Synonim].[ApplicationId] AS [ApplicationId], 
+      [vw_aspnet_Users_Synonim].[UserId] AS [UserId], 
+      [vw_aspnet_Users_Synonim].[UserName] AS [UserName], 
+      [vw_aspnet_Users_Synonim].[LoweredUserName] AS [LoweredUserName], 
+      [vw_aspnet_Users_Synonim].[MobileAlias] AS [MobileAlias], 
+      [vw_aspnet_Users_Synonim].[IsAnonymous] AS [IsAnonymous], 
+      [vw_aspnet_Users_Synonim].[LastActivityDate] AS [LastActivityDate]
+      FROM [dbo].[vw_aspnet_Users_Synonim] AS [vw_aspnet_Users_Synonim]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_UserDetails" EntityType="EurocopterModel.Store.vw_UserDetails" store:Type="Views" store:Schema="dbo" store:Name="vw_UserDetails">
+      <DefiningQuery>SELECT 
+      [vw_UserDetails].[UserDetailsId] AS [UserDetailsId], 
+      [vw_UserDetails].[UserId] AS [UserId], 
+      [vw_UserDetails].[UserFullName] AS [UserFullName]
+      FROM [dbo].[vw_UserDetails] AS [vw_UserDetails]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ApplicationUsersInRoles_ApplicationRoles" Association="EurocopterModel.Store.FK_ApplicationUsersInRoles_ApplicationRoles">
+      <End Role="ApplicationRoles" EntitySet="ApplicationRoles" />
+      <End Role="ApplicationUsersInRoles" EntitySet="ApplicationUsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Status" Association="EurocopterModel.Store.FK_Item_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemStatusHistory_FromStatus" Association="EurocopterModel.Store.FK_ItemStatusHistory_FromStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="ItemStatusHistory" EntitySet="ItemStatusHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemStatusHistory_Item" Association="EurocopterModel.Store.FK_ItemStatusHistory_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ItemStatusHistory" EntitySet="ItemStatusHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemStatusHistory_ItemStatusHistory" Association="EurocopterModel.Store.FK_ItemStatusHistory_ItemStatusHistory">
+      <End Role="ItemStatusHistory" EntitySet="ItemStatusHistory" />
+      <End Role="ItemStatusHistory1" EntitySet="ItemStatusHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemStatusHistory_ToStatus" Association="EurocopterModel.Store.FK_ItemStatusHistory_ToStatus">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="ItemStatusHistory" EntitySet="ItemStatusHistory" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ApplicationRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ApplicationUsersInRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GridState">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PageName" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="WO" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="WP" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Ud" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Subsystem_ECP" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Issue" Type="nvarchar" MaxLength="200" />
+    <Property Name="Installation" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="RPT_VCI" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Indice" Type="nvarchar" MaxLength="200" />
+    <Property Name="Designation" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="TypeIU" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="ConfNo" Type="nvarchar" MaxLength="200" />
+    <Property Name="Effectivity" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Aircraft" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="DataIn" Type="datetime" Nullable="false" />
+    <Property Name="Deadline" Type="datetime" Nullable="false" />
+    <Property Name="DataOut" Type="datetime" />
+    <Property Name="DaosDescription" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Daos" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="AuthorId" Type="uniqueidentifier" />
+    <Property Name="StatusId" Type="smallint" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="ProofReaderId" Type="uniqueidentifier" />
+    <Property Name="AuthoringPercent" Type="decimal" Nullable="false" Precision="4" Scale="2" />
+    <Property Name="CrossCheckPercent" Type="decimal" Nullable="false" Precision="4" Scale="2" />
+    <Property Name="FinalPercent" Type="decimal" Nullable="false" Precision="4" Scale="2" />
+    <Property Name="Figure" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ItemStatusHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ItemId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FromStatusId" Type="smallint" Nullable="false" />
+    <Property Name="ToStatusId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Eurocopter.dbo.vw_aspnet_Users_Synonim' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vw_aspnet_Users_Synonim">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Eurocopter.dbo.vw_UserDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vw_UserDetails">
+    <Key>
+      <PropertyRef Name="UserDetailsId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserDetailsId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_ApplicationUsersInRoles_ApplicationRoles">
+    <End Role="ApplicationRoles" Type="EurocopterModel.Store.ApplicationRoles" Multiplicity="1" />
+    <End Role="ApplicationUsersInRoles" Type="EurocopterModel.Store.ApplicationUsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicationRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApplicationUsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Status">
+    <End Role="Status" Type="EurocopterModel.Store.Status" Multiplicity="1" />
+    <End Role="Item" Type="EurocopterModel.Store.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemStatusHistory_FromStatus">
+    <End Role="Status" Type="EurocopterModel.Store.Status" Multiplicity="1" />
+    <End Role="ItemStatusHistory" Type="EurocopterModel.Store.ItemStatusHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemStatusHistory">
+        <PropertyRef Name="FromStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemStatusHistory_Item">
+    <End Role="Item" Type="EurocopterModel.Store.Item" Multiplicity="1" />
+    <End Role="ItemStatusHistory" Type="EurocopterModel.Store.ItemStatusHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemStatusHistory">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemStatusHistory_ItemStatusHistory">
+    <End Role="ItemStatusHistory" Type="EurocopterModel.Store.ItemStatusHistory" Multiplicity="1" />
+    <End Role="ItemStatusHistory1" Type="EurocopterModel.Store.ItemStatusHistory" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ItemStatusHistory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemStatusHistory1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemStatusHistory_ToStatus">
+    <End Role="Status" Type="EurocopterModel.Store.Status" Multiplicity="1" />
+    <End Role="ItemStatusHistory" Type="EurocopterModel.Store.ItemStatusHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemStatusHistory">
+        <PropertyRef Name="ToStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
